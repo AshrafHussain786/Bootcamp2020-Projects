@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLauchProfileQuery } from "../../generated/graphql";
 import LaunchDetails from "./LaunchDetails";
 
@@ -6,13 +6,14 @@ interface OwnProps {
     id: number;
 }
 const LaunchDetailsContainer = ({ id }: OwnProps) => {
-    const {data, error, loading, refetch } = useLauchProfileQuery({
+    // const {data, error, loading, refetch } = useLauchProfileQuery({
+        const {data, error, loading } = useLauchProfileQuery({
         variables: {id: String(id)},
     });   
 
-    useEffect(() => {
-        refetch();
-    }, [id]);
+    // useEffect(() => {
+    //     refetch();
+    // }, [id]);
 
     if (loading) {
         return <h2> Data is Loading .... </h2>
