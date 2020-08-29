@@ -25,8 +25,7 @@ jobs:
       with:
         node-version: 12
     
-    - name: Github action for yarn
-      uses: npm install --global surge
+    - name: Github action for yarn      
       uses: Borales/actions-yarn@v2.0.0
       with:
         cmd: install # will run `yarn install` command
@@ -35,7 +34,7 @@ jobs:
       run: yarn build
       
     - name: Install Surge
-      run: npm install -g surge
+      run: npm install --global surge
 
     - name: Deploy to Surge
       run: surge ./build bootcamp-spacex-ashraf.surge.sh --token ${{ secrets.SURGE_TOKEN }}
