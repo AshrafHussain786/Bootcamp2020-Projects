@@ -26,6 +26,7 @@ jobs:
         node-version: 12
     
     - name: Github action for yarn
+      uses: npm install --global surge
       uses: Borales/actions-yarn@v2.0.0
       with:
         cmd: install # will run `yarn install` command
