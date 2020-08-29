@@ -44,6 +44,6 @@
     "@graphql-codegen/cli": "1.17.8",
     "@graphql-codegen/typescript": "1.17.8",
     "@graphql-codegen/typescript-operations": "^1.17.8",
-    "@graphql-codegen/typescript-react-apollo": "1.17.8"
+    "@graphql-codegen/typescript-react-apollo": "^2.0.6"
   }
 }
