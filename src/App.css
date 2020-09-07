@@ -1,38 +1,87 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App > h1 {
+    text-shadow: 4px 2px 15px rgba(0, 80, 252, 0.651);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.formElement {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.box {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    padding: 10px 20px;
+    border-radius: 5%;
+    border-top: rgba(0, 80, 252, 0.651) 10px solid;
+    border-bottom: rgba(0, 80, 252, 0.651) 10px solid;
+    box-shadow: rgb(112, 112, 112) 0 0 10px 0;
   }
+
+.box h4 {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+select {
+    width: 90%;
+    padding: 5px 10px;
+    border: 1px rgba(0, 0, 0, 0.322) solid;
+    border-radius: 5px;
   }
-  to {
-    transform: rotate(360deg);
+
+.btn {
+    margin-top: 50px;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    background-color: lightskyblue;
+    font-size: 20px;
   }
-}
+
+  .footer {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    background-color: blue;
+    min-height: 50px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+
+  .innerFooter {
+    text-transform: uppercase;
+    align-self: center;
+    letter-spacing: 0.2rem;
+  }
+
+  .footer a {
+    color: rgba(0, 252, 176, 0.651);
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: red;
+    cursor: pointer;
+  }
+
+  .App button:hover {
+    background-color: rgb(3, 187, 3);
+  }
