@@ -1,38 +1,20 @@
-import React, { ChangeEventHandler } from 'react';
-
-export type Quiz = {
-    category: string
-    correct_answer: string
-    difficulty: string
-    incorrect_answers: string[]
-    question: string
-    type: string
-}
-
 export type QuestionType = {
     category: string
-    correct_answer: string   
     difficulty: string
-    incorrect_answers: string[]
-    question: string
     type: string 
+    correct_answer: string 
+    incorrect_answers: string[]
+    question: string    
     option: string[]  
     callback: (e: React.MouseEvent<HTMLButtonElement>) => void     
 }
 
-
-export type questionPropsType = {
-    question: string,
-    options: string[],
-    callback: (e: React.MouseEvent<HTMLButtonElement>, ans: string) => void    
-}
-
-export type Props = {
-    question: string;
+export type Props = {    
+    question: string;    
+    userAnswer: AnswerObject | undefined;
     answers: string[];
     callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    userAnswer: AnswerObject | undefined;
-    questionNr: number;
+    questionNo: number;
     totalQuestions: number;
   };
 

@@ -18,7 +18,7 @@ function App() {
   let [currentStep, setCurrentStep] = useState(0);
   let [score, setScore] = useState(0);
   let [gameOver, setGameOver] = useState(true);
-  let [totalQuestions, setTotalQuestions] = useState(5);
+  let [totalQuestions, setTotalQuestions] = useState(10);
   let [difficulty, setDifficulty] = useState("easy");
   let [category, setCategory] = useState("9");
   let [quiz, setQuiz] = useState<QuestionType[]>([]);
@@ -96,8 +96,8 @@ function App() {
     <div className="App">
 
       <h1>QUIZ APP</h1>
-   
-      {!start && !isContinued ? (
+      
+      {!start && !isContinued ? (             // if start is true and isContinued is true
         <>
           <div className="options">
             <div className="box">
@@ -165,15 +165,16 @@ function App() {
         : null
       }
 
-      {isLoading ? <h2>Loading ..... </h2> : null}
+      {isLoading ?                                   // if isLoading is false
+          <h2>Loading ..... </h2> : null}    
 
-      {!gameOver && !isContinued ? (
+      {!gameOver && !isContinued ? (                  // if gameOver is false and isContinued is true
         <div>
           <h2 className="score"> Your current score is: {score} out of {currentStep} </h2>
 
           <h3> <b> Question: {currentStep + 1} / {totalQuestions}</b></h3>
           <QuestionCard
-            questionNr={currentStep + 1}
+            questionNo={currentStep + 1}
             totalQuestions={totalQuestions}
             question={quiz[currentStep].question}
             answers={quiz[currentStep].option}
@@ -186,12 +187,12 @@ function App() {
         <button onClick={showNext} className="btn">Next</button>) : null
       }
 
-      {currentStep === totalQuestions - 1 ? (
+      {currentStep === totalQuestions - 1 ? (       // if currentStep is equal to totalQuestions 
         <button onClick={doContinue} className="btn">Continue</button>
         ) : null
       }
 
-      {isContinued ? (
+      {isContinued ? (                              // if isContinued is false
         <div className="App">
           <h2>Your final score is: <b>{score} </b> / <b>{totalQuestions}</b></h2>
           <button className="btn" onClick={restartQuiz}>Restart Quiz</button>

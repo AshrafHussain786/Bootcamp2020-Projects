@@ -7,8 +7,8 @@ const QuestionCard: React.FC<Props> = ({
   answers,
   callback,
   userAnswer,
-  questionNr,
-  totalQuestions,
+  // questionNo,
+  // totalQuestions,
   }) => (
   <Wrapper>    
     <p dangerouslySetInnerHTML={{ __html: question }} />
