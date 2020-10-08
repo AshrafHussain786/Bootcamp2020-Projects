@@ -1,0 +1,33 @@
+.timer-container {
+	background-color: var(--timer-background-color);
+	border: var(--timer-border);
+	height: var(--timer-height);
+	width: var(--timer-width);
+	box-shadow: 5px 10px #888888;
+}
+
+.time-display {
+	height: 80%;
+	font-size: 10em;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	display: flex;
+	justify-content: center;
+	margin-left: auto;
+	flex-direction: column;
+	align-items: center;
+	color: darkblue;
+	border: 0.25px solid blue;
+  }
+  
+  .timer-button-container {
+	display: flex;
+	flex-direction: row;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	justify-content: center;
+	height: 20%;
+	border: 0.25px solid blue;	
+  }
+
+  
+
+  

@@ -1,0 +1,26 @@
+.button-container {
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 20px;
+    /* border: var(--button-border); */
+    /* font-size: var(--button-text-size); */
+    height: 65px;
+  }
+  
+  .button-container:hover {
+    cursor: pointer;
+  }
+
+  .button-value {
+	  background-color: lightskyblue;
+	  color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 0px;
+    padding: 15px 45px;
+  }
+
+  .button-value:hover {
+    color: darkblue;
+    background-color: darkcyan;
+  }
