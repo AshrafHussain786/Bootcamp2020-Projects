@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +36,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header-img {
+  text-align: right;
+}
+
+#header .animated {
+  animation: up-down 1s ease-in-out infinite alternate-reverse both;
+}
+
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(25px);
+  }
+  100% {
+    transform: translateY(-25px);
+  }  
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(25px);
+  }
+  100% {
+    transform: translateY(-25px);
+  }  
 }
