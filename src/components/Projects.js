@@ -16,9 +16,7 @@ export function Projects() {
         easing: "ease-in", 
       },  
     });
-
-  const text = "Visit Website";
-  const text1 = "View Gihub Repo";   
+   
   return (
     < div ref={ref}>
       <div className="my-5">
@@ -38,8 +36,8 @@ export function Projects() {
                           <h5 className="card-title">{project.projectId}</h5>  
                           <h5 className="card-title">{project.title}</h5>                      
                                   
-                          <a href={project.projectlink} className="btn btn-primary float-left">{text}</a>
-                          <a href={project.gitlink} className="btn btn-info float-right">{text1}</a>
+                          <a href={project.projectlink} className="btn btn-primary float-left">Visit Website</a>
+                          <a href={project.gitlink} className="btn btn-info float-right">View Gihub Repo</a>
                         </div>
                       </div>
                     </div>

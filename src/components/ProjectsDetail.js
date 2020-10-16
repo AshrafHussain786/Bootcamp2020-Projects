@@ -23,7 +23,7 @@ export const ProjectsDetail = [
         imgsrc: Project2,
         projectId: "Project-2",
         title: "Covid-19 Tracker App",
-        projectlink:"http://bootcamp-covid19-ashraf.surge.sh/",
+        projectlink:"http://bootcamp-covid19react-ashraf.surge.sh/",
         gitlink: "https://github.com/AshrafHussain786/Bootcamp2020-Projects/tree/Project-2"
     },
     {

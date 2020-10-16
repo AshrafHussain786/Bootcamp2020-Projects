@@ -22,7 +22,7 @@ export function Contact() {
                 <div>
                     <Lottie
                         options={defaultOptions}
-                        height={"50%"}
+                        height={"80%"}
                         width={"300%"}                        
                     />
                 </div>
