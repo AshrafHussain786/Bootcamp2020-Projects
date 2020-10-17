@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bootcamp 2020 Project 5 - Animated React Website Project:
 
-## Available Scripts
+“Our eyes are hardwired to notice movement. Historically, it’s helped to keep us alive. And, in 2020, web designers are capitalizing on this default human setting. Animated illustrations are one of the newest trends being used to direct viewer attention within web designs. You’ll see these petite animations on sites all over the web. Some animated illustrations are merely still graphics that jiggle, while other illustrated animations are more thoughtful and complex. When used to their fullest capacity, animated illustrations can tell stories, explain concepts, or help viewers navigate a website.” The 8 Biggest Web Design Trends of 2020 
+https://www.crowdspring.com/blog/web-design-trends-2020/
+20 Extraordinary Web Design Ideas That Will Get Everyone Clicking () Incorporating illustration on a website has been a trend for a few years. However, designers are now focusing to create custom and 3D illustrations to define a brand. An illustration can empower a brand if blended well with minimalism. See how the brand Neat has rightly executed this trend:
 
-In the project directory, you can run:
+Neat Website 
 
-### `yarn start`
+To intrigue viewers, brands like Pitch have introduced 3D illustration design: Pitch Website 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In this project you will build a animated React Website, all animations must use the latest Web Animations API and latest trends.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Resources:
 
-### `yarn test`
+Beautiful, free illustrations
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+free illustrations 
 
-### `yarn build`
+Design Resources for Developers
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can use the ideas form these resourses or develop your own ideas:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Best websites that use Illustration and Animation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+22 Websites with Impressive Illustrations and Animations (https://www.thebestdesigns.com/collections/websites-with-bold-colorful-illustrations-and-animations)
 
-### `yarn eject`
+10 Inspiring Websites with Gorgeous Animations (https://1stwebdesigner.com/10-inspiring-websites-with-gorgeous-animations/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Animated Sites (https://www.cssdesignawards.com/website-gallery?feature=animated)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+8 Best Animated Websites (https://www.mockplus.com/blog/post/best-animated-websites)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Best Website examples of designs with animation (https://www.awwwards.com/websites/animation/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You may use AI to generate graphics:
 
-## Learn More
+Creative Tools to Generate AI Art (https://aiartists.org/ai-generated-art-tools)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Magenta.js (https://magenta.tensorflow.org/get-started/#magenta-js)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Web Demo (https://magenta.tensorflow.org/assets/sketch_rnn_demo/index.html)
 
-### Code Splitting
+Magenta Tool (https://style-transfer.glitch.me/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Sketch-RNN-JS: A Generative Model for Vector Drawings (https://github.com/magenta/magenta-demos/blob/master/sketch-rnn-js/README.md)
 
-### Analyzing the Bundle Size
+Auto Draw: An AI Experiment (https://www.autodraw.com/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Your code should be hosted in a GitHub Repo from the beginning with GitHub CI/CD Actions and hosted on Surge.
 
-### Making a Progressive Web App
+Notes:
+Once we start Freelancing and Working Remotely we will use this app as our portfolio to show to our clients our technical capabilities.
+Those developers who will build the best app will be immediately selected to be part of our teaching and software development team.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+For complete details about Bootcamp-2020 go to:
+https://panacloud.github.io/bootcamp-2020/
