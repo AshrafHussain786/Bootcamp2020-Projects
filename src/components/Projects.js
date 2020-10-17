@@ -2,7 +2,6 @@ import React from 'react';
 import { ProjectsDetail } from "./ProjectsDetail"
 import useWebAnimations from "@wellyshen/use-web-animations";
 
-
 export function Projects() {  
     const { ref } = useWebAnimations({
       keyframes: {
