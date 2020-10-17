@@ -43,7 +43,7 @@ export function About() {
                                 <div className="mt-2">
                                     <a href="https://www.facebook.com/ashraf.hussain.1428/" rel="noopener noreferrer" target="_blank"><span className="fa fa-facebook footersocial"></span></a>
                                     <a href="https://www.linkedin.com/in/ashraf-hussain-acma-certified-sap-fi-consultant-80644233/" rel="noopener noreferrer" target="_blank"><span className="fa fa-linkedin  footersocial"></span></a>
-                                    <a href="https://github.com/AshrafHussain786" target="_blank" rel="noopener noreferrer" target="_blank"><span className="fa fa-github footersocial"></span></a>
+                                    <a href="https://github.com/AshrafHussain786" rel="noopener noreferrer" target="_blank"><span className="fa fa-github footersocial"></span></a>
                                 </div>
                             </div>
                         </div>
