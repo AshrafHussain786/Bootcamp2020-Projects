@@ -55,7 +55,7 @@ export const ProjectsDetail = [
         imgsrc: Project5,
         projectId: "Project-5",
         title: "Animated React Website",
-        projectlink:"http://bootcamp-project4b-ashraf.surge.sh/",
+        projectlink:"http://bootcamp-project5-ashraf.surge.sh/",
         gitlink: "https://github.com/AshrafHussain786/Bootcamp2020-Projects/tree/Project-5"
     },
     {
@@ -63,7 +63,7 @@ export const ProjectsDetail = [
         imgsrc: Project6,
         projectId: "Project-6",
         title: " Quiz App",
-        projectlink:"http://bootcamp-project4b-ashraf.surge.sh/",
+        projectlink:"http://bootcamp-project6-ashraf.surge.sh/",
         gitlink: "https://github.com/AshrafHussain786/Bootcamp2020-Projects/tree/Project-6"        
     },
     {
@@ -79,7 +79,7 @@ export const ProjectsDetail = [
         imgsrc: Project7B,
         projectId: "Project-7B",
         title: "React Timer App",
-        projectlink:"http://bootcamp-project4b-ashraf.surge.sh/",
+        projectlink:"http://bootcamp-project7b-ashraf.surge.sh/",
         gitlink: "https://github.com/AshrafHussain786/Bootcamp2020-Projects/tree/Project-7B"        
     },
     {
