@@ -21,5 +21,21 @@
     "@types/react": "^16.9.11",
     "@types/react-redux": "^7.1.5",
     "typescript": "^3.7.2"
-  }
+  },
+  "description": "Redux, a predictable state container for JavaScript applications, has justifiably had a bad reputation in the past for being overly complex and verbose. Whilst this can still be true, times have changed, the library has changed and evolved, and combined with the amazing Redux Toolkit, many of the historic complains have been alleviated.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshrafHussain786/Bootcamp2020-Projects.git"
+  },
+  "keywords": [
+    "shopping",
+    "basket"
+  ],
+  "author": "jon preece",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshrafHussain786/Bootcamp2020-Projects/issues"
+  },
+  "homepage": "https://github.com/AshrafHussain786/Bootcamp2020-Projects#readme"
 }
