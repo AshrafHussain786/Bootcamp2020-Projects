@@ -35,6 +35,7 @@ jobs:
       
     - name: Install Surge
       run: npm install -g surge
+      
 
     - name: Deploy to Surge
       run: surge ./build bootcamp-project9a-ashraf.surge.sh --token ${{ secrets.SURGE_TOKEN }}
