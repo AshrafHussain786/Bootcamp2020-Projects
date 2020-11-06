@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React from "react";
+import FormikForm from "./FormikForm";
+import FormikFormWithYup from "./FormikFormWithYup";
+import StepperComponent from "./Stepper";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+function App(){
+    return (
+      <div className="App">           
+          <FormikForm />
+          <hr />
+          <FormikFormWithYup /> 
+          <hr />    
+          <StepperComponent />         
+      </div>
+    );
+  }
 
 export default App;
