@@ -27,3 +27,7 @@ h2 {
 table {
     box-shadow: 10px 10px grey;
 }
+
+button:hover {
+    background-color: red;
+}

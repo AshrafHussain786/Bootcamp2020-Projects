@@ -10,8 +10,9 @@ const typeDefs = gql`
     todos: [Todo!]    
   }
   type Mutation {
-    addTodo(task: String!): Todo   
-    delTask(id: ID!): Todo 
+    addTodo(task: String!): Todo,   
+    delTask(id: ID!): Todo
+    updateTask(id: ID!): Todo 
   }  
   type Todo {
     id: ID!
@@ -19,18 +20,19 @@ const typeDefs = gql`
     status: Boolean!
   }
 `
+// The following is creation of client with Fauna Database
+const client = new faunadb.Client({
+  secret: process.env.FAUNADB_SERVER_SECRET,
+})
 
-// const client = new faunadb.Client({
-//   secret: process.env.FAUNADB_SERVER_SECRET,
-// })
-
+// The following are the "Resolver" definition
 const resolvers = {
   Query: {
     todos: async (root, args, context) => {
       try {
-        var adminClient = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+        // var adminClient = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
 
-        const result = await adminClient.query(
+        const result = await client.query(
           q.Map(
             q.Paginate(q.Match(q.Index('task'))),
             q.Lambda(x => q.Get(x))
@@ -39,7 +41,7 @@ const resolvers = {
         console.log("Result", result.data)
         return result.data.map(d => {
           return {
-            id: d.ts,
+            id: d.ref.id,
             status: d.data.status,
             task: d.data.task
           }
@@ -50,11 +52,12 @@ const resolvers = {
       }
     }
   },
+  
   Mutation: {
     addTodo: async (_, { task }) => {
       try {
-        var adminClient = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
-        const result = await adminClient.query(
+        // var adminClient = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+        const result = await client.query(
           q.Create(
             q.Collection('todos'),
             {
@@ -71,19 +74,23 @@ const resolvers = {
         console.log(err)
       }
     },
+
     delTask: async (_, { id }) => {
       try {
-        var adminClient = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
-        const newId = JSON.stringify(id)
-        console.log(newId)
-        const result = await adminClient.query(        
+        // var adminClient = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+        // const newId = JSON.stringify(id)
+        // console.log("ts ID in DelTask Mutation************", newId)
+        console.log("ts ID in DelTask Mutation************", id)
+
+
+        const result = await client.query(
           q.Delete(q.Ref(q.Collection("todos"), id))
         )
+        console.log("result.ref.id in DelTask Mutation************", result.ref.id)
         return result.data
-      } catch (error) {
-        return error
-      }
+      } catch (error) { console.log(error) }
     }
+
   }
 }
 
