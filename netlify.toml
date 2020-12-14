@@ -1,4 +1,7 @@
 [build]
   command = "npm run build && cd functions && npm install"
-  publish = "public/"
-  functions = "functions/"  
+  publish = "build/"
+  functions = "functions/"
+
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"  
