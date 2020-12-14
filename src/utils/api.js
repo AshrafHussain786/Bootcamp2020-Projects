@@ -43,10 +43,11 @@ const batchDeleteTodo = (todoIds) => {
   })
 }
 
-export default api ({
+const api = {
   create: create,
   readAll: readAll,
   update: update,
   delete: deleteTodo,
   batchDelete: batchDeleteTodo
-})
+}
+export default api;
