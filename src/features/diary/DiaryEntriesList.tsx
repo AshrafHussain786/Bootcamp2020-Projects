@@ -9,10 +9,14 @@ import { setCurrentlyEditing, setCanEdit } from '../entry/editorSlice';
 import dayjs from 'dayjs';
 import { useAppDispatch } from '../../store';
 
+type idProps = {
+  id: string
+}
+
 const DiaryEntriesList: FC = () => {
   const { entries } = useSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
-  const { id } = useParams();
+  const { id }: idProps = useParams();
 
   useEffect(() => {
     if (id != null) {
