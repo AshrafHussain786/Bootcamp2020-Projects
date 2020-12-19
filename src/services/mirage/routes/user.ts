@@ -10,7 +10,7 @@ export interface AuthResponse {
   user: User;
 }
 
-const login = (schema: any, req: Request): AuthResponse | Response => {
+export const login = (schema: any, req: Request): AuthResponse | Response => {
   const { username, password } = JSON.parse(req.requestBody);
   const user = schema.users.findBy({ username });
   if (!user) {
