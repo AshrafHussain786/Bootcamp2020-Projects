@@ -48,7 +48,7 @@ jobs:
       run: yarn build
       
     - name: Install Surge
-      run: npm install --global surge      
+      run: sudo npm install --global surge      
 
     - name: Deploy to Surge
       run: surge ./build bootcamp-project9b-ashraf.surge.sh --token ${{ secrets.Project9B_Token }}
