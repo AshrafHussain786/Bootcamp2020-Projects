@@ -26,7 +26,7 @@ const login = (schema: any, req: Request): AuthResponse | Response => {
   };
 };
 
-const signup = (schema: any, req: Request): AuthResponse | Response => {
+export const signup = (schema: any, req: Request): AuthResponse | Response => {
   const data = JSON.parse(req.requestBody);
   const exUser = schema.users.findBy({ username: data.username });
   if (exUser) {
@@ -40,7 +40,7 @@ const signup = (schema: any, req: Request): AuthResponse | Response => {
   };
 };
 
-export default {
-  login,
-  signup,
-};
+// export default {
+//   login,
+//   signup,
+// };
