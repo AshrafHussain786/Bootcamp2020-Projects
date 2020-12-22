@@ -30,7 +30,7 @@ const typeDefs = gql`
       flavourBottom: String!) : Lolly
   }
 `
-const client = new faunadb.Client({secret: "fnAD9qsJ_eACBaFHv5e4p0hsChaTgf5agypjqWUo"});
+const client = new faunadb.Client({secret: process.env.FAUNADB_SERVER_SECRET});
 const resolvers = {
   Query: {
     hello: () => {
