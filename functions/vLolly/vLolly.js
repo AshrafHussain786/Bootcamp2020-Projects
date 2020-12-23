@@ -9,7 +9,7 @@ const typeDefs = gql`
   type Query {
     hello: String  
     getAllLollies: [Lolly]!
-    getLollyBySlug(path: String!): Lolly  
+    GetLollyBySlug(lollyPath: String!): Lolly  
   }
   type Lolly {
     recipientName: String!
@@ -38,7 +38,7 @@ const resolvers = {
     },
 
     getAllLollies: async () => {
-      var result = await Client.query(
+      var result = await client.query(
         q.Map(
           q.Paginate(q.Match(q.Index("AllLollies"))),
           q.Lambda((x) => q.Get(x))
@@ -52,11 +52,11 @@ const resolvers = {
       return x;
     },
 
-    getLollyBySlug: async (_, { path }) => {
+    GetLollyBySlug: async (_, { lollyPath }) => {
       console.log(path);
       try {
-        const result = await Client.query(
-          q.Get(q.Match(q.Index("Lolly"), path))
+        const result = await client.query(
+          q.Get(q.Match(q.Index("lolly_by_path"), lollyPath))
         );
 
         console.log(result)
@@ -84,16 +84,14 @@ const resolvers = {
       );
 
       axios
-          .post("https://api.netlify.com/build_hooks/5fb55a152ea1be1e4382f33c")
+          .post(process.env.NETLIFY_HOOK_URL)
           .then(function (response) {
-            // console.log(response);
+             console.log(response);
           })
           .catch(function (error) {
-            // console.error(error);
+             console.error(error);
           });
         
-      console.log('result', result);
-      console.log('result', result.data);
       return result.data
     } catch (error) {
       return error.toString();

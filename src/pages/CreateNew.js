@@ -82,7 +82,7 @@ export default function CreateNew() {
             flavourTop: color1,
             flavourMiddle: color2,
             flavourBottom: color3,
-            path: slug.toString(),
+            lollyPath: slug.toString(),
             }
         });
         console.log("result form server = ",result);
@@ -95,7 +95,7 @@ export default function CreateNew() {
         //     },
         //   });
         
-        await navigate(`/lolly/${slug}`);
+        await navigate(`/Lollies/${slug}`);
     }
 
   return (
