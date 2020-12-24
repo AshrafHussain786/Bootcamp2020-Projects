@@ -1,0 +1,57 @@
+.list-item{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    background-color: white;
+    margin: 1vh auto;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    border-style: solid;
+    border-color: rgb(102, 172, 205);
+    border-radius: 10px;
+}
+
+.list-item .checkbox_Text {
+ 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+   
+}
+.list-item .checkbox_Text p {
+    width: 90%;
+    margin-Left: 1vh;
+    text-overflow:ellipsis;
+    font-size: 100%;
+    overflow: hidden;
+    font-weight: bold;
+   
+
+}
+
+.list-item .checkbox_Text .archived {
+    width: 90%;
+    color: rgb(124, 124, 128);
+    margin-Left: 1vh;
+    text-overflow:ellipsis;
+    font-size: 100%;
+    overflow: hidden;
+    font-weight: bold;
+
+}
+
+
+.starUnpinned{
+    color: rgba(134, 133, 133,0.5)
+    }
+
+.starUnpinned:hover {
+    color: rgb(0, 65, 77);
+}
+
+.starPinned{
+    color: rgb(0, 65, 77);
+    }
