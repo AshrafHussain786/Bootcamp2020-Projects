@@ -97,7 +97,7 @@ export default function CreateNew() {
         //     },
         //   });
         
-        await navigate(`/Lollies/${slug}`);
+        await navigate(`/showLolly/${slug}`);
     }
 
   return (
