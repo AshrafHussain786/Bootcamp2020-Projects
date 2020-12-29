@@ -18,16 +18,14 @@ const createLollyMutation = gql`
         $senderName: String!, 
         $flavourTop: String!, 
         $flavourMiddle: String!,
-        $flavourBottom: String!,
-        $lollyPath: String!
+        $flavourBottom: String!
         ) {
         createLolly(recipientName: $recipientName, 
             message: $message, 
             senderName: $senderName, 
             flavourTop: $flavourTop, 
             flavourMiddle: $flavourMiddle,
-            flavourBottom: $flavourBottom,
-            lollyPath: $lollyPath) {
+            flavourBottom: $flavourBottom) {
             message
             lollyPath
         }
@@ -74,7 +72,7 @@ export default function CreateNew() {
     //     console.log("result form server = ",result);
     // }
 
-    const submitLollyForm = async () => {
+    const submitLollyForm = async (values, actions) => {
         const slug = shortId.generate();
         const result = await createLolly({
           variables: {
@@ -84,7 +82,7 @@ export default function CreateNew() {
             flavourTop: color1,
             flavourMiddle: color2,
             flavourBottom: color3,
-            lollyPath: slug,
+            lollyPath: slug.toString(),
             }
         });
         console.log("result form server = ",result);
