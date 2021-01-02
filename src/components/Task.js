@@ -18,8 +18,10 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
         <input type="text" value={title} readOnly={true} placeholder="Input title"/>
       </div>
 
+      
       <div className="actions" onClick={event => event.stopPropagation()}>
-        {state !== 'TASK_ARCHIVED' && (          
+        {state !== 'TASK_ARCHIVED' && (  
+          // eslint-disable-next-line        
           <a onClick={() => onPinTask(id)}>
             <span className={`icon-star`} />
           </a>
