@@ -7,6 +7,7 @@ import './index.css';
 function App() {
   return (
     <Provider store={createStore}>
+      <h2> Story Book </h2>
       <InboxScreen />
     </Provider>
   );
