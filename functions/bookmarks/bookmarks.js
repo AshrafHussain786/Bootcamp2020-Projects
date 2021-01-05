@@ -2,6 +2,8 @@ const { ApolloServer, gql } = require('apollo-server-lambda')
 const faunadb = require('faunadb'),
   q = faunadb.query;
 
+require("dotenv").config();
+
 const typeDefs = gql`  
   type Query {
     bookmarks: [Bookmark!]
@@ -16,18 +18,16 @@ const typeDefs = gql`
     delBookmark(id: ID!): Bookmark
   }
 `
-// const authors = [
-//   { id: 1, url: 'https://github.com/gatsbyjs/gatsby-starter-hello-world', desc: "this is a github gatsby official repository" },
-//   { id: 2, url: 'https://github.com/gatsbyjs/gatsby-starter-hello-world', desc: "this is a github gatsby official repository" },
-//   { id: 3, url: 'https://github.com/gatsbyjs/gatsby-starter-hello-world', desc: "this is a github gatsby official repository" },
-// ]
+
+const client = new faunadb.Client({
+  secret: process.env.FAUNADB_SERVER_SECRET,
+})
 
 const resolvers = {
   Query: {
     bookmarks: async (root, args, context) => {
-      try{
-        var client = new faunadb.Client({ secret: "fnAD-prkS0ACAWwMSTdq6oVCRRQT346RbRDuHyHh" });
-        var result = await client.query(
+      try{        
+        const result = await client.query(
           q.Map(
             q.Paginate(q.Match(q.Index("url"))),
             q.Lambda(x => q.Get(x))
@@ -48,9 +48,8 @@ const resolvers = {
   },
   Mutation: {
     addBookmark: async (_, {url,desc}) => {
-      try {
-        var client = new faunadb.Client({ secret: "fnAD-prkS0ACAWwMSTdq6oVCRRQT346RbRDuHyHh" });
-        var result = await client.query(
+      try {        
+        const result = await client.query(
           q.Create(
             q.Collection('links'),
             { data: { 
@@ -63,16 +62,12 @@ const resolvers = {
         return result.ref.data
       } 
       catch (error){
-          console.log('Error: ');
-          console.log(error);
+          console.log('Error: ', error);          
       }      
     },
 
     delBookmark: async (_, { id }) => {
       try {
-        console.log("ts ID in Delete Bookmark Mutation************", id)
-
-        var client = new faunadb.Client({ secret: "fnAD-prkS0ACAWwMSTdq6oVCRRQT346RbRDuHyHh" });
         const result = await client.query(
           q.Delete(q.Ref(q.Collection("links"), id))
         )
@@ -80,7 +75,6 @@ const resolvers = {
         return result.data
       } catch (error) { console.log(error) }
     },
-
     
   }
 }

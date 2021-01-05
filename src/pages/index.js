@@ -50,9 +50,11 @@ export default function Home() {
       desc: desc.value
     },
     refetchQueries: [{query:GET_BOOKMARKS}],
+    
   })
    console.log('textfield',textfield.value)
    console.log('Desc',desc.value)
+   
  }
 
  const handleDelete = (id) => {
@@ -70,11 +72,15 @@ export default function Home() {
         <div className="add-container">
           <h2>ADD BOOKMARK</h2>
 
-          <label>Please enter URL </label>
-          <input type="text" placeholder="URL" ref={node => textfield=node}/> <br />
+          <label>Please enter URL 
+              <input type="text" placeholder="URL" ref={node => textfield=node}/>
+          </label>
+           <br />
 
-          <label>Please enter Description </label>
-          <input type="text" placeholder="Description" ref={node => desc=node}/> <br />
+          <label>Please enter Description 
+              <input type="text" placeholder="Description" ref={node => desc=node}/>
+          </label>
+           <br />
           <button onClick={addBookmarkSubmit}>Add BookMark</button>
         </div>
         <br />
