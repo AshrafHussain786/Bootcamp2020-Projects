@@ -72,7 +72,7 @@ export default function Home() {
         <div className="add-container">
           <h2>ADD BOOKMARK</h2>
 
-          <label>Please enter URL 
+          <label>Please enter URL link
               <input type="text" placeholder="URL" ref={node => textfield=node}/>
           </label>
            <br />
