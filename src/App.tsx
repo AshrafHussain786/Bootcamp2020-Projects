@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Header } from "./component/Header";
+import { Balance } from "./component/Balance";
+import { IncomeExpenses } from "./component/IncomeExpenses";
+import { TransactionList } from "./component/TransactionList";
+import AddTransactionList from "./component/AddTransaction";
+import { GlobalProvider } from "./context/GlobalState";
+import firebase from "./config/firebase";
 
-function App() {
+const App: React.FC = () => {
+  window.addEventListener("load", () => {
+    const messaging = firebase.messaging();
+    messaging
+      .requestPermission()
+      .then(() => {
+        console.log("permission granted");
+      })
+      .catch(() => console.log("permission denied"));
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <GlobalProvider>
+      <div className="App">
+        <Header />
+        <div className="container">
+          <Balance />
+          <IncomeExpenses />
+          <TransactionList />
+          <AddTransactionList />
+        </div>
+      </div>
+    </GlobalProvider>
+  )
+};
 
 export default App;

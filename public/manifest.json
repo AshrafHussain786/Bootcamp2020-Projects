@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Project 7A",
+  "name": "PWA Expense Tracker",
+  "app_name": "Expense Tracker PWA",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +20,10 @@
     }
   ],
   "start_url": ".",
+  "scope": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#fff",
+  "theme_color": "#3f51b5",
+  "dir": "ltr",
+  "lang": "en-US"
 }
