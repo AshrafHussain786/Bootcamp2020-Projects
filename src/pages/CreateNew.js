@@ -18,14 +18,16 @@ const createLollyMutation = gql`
         $senderName: String!, 
         $flavourTop: String!, 
         $flavourMiddle: String!,
-        $flavourBottom: String!
+        $flavourBottom: String!,
+        $lollyPath: String!
         ) {
         createLolly(recipientName: $recipientName, 
             message: $message, 
             senderName: $senderName, 
             flavourTop: $flavourTop, 
             flavourMiddle: $flavourMiddle,
-            flavourBottom: $flavourBottom) {
+            flavourBottom: $flavourBottom,
+            lollyPath: $lollyPath) {
             message
             lollyPath
         }
@@ -72,7 +74,10 @@ export default function CreateNew() {
     //     console.log("result form server = ",result);
     // }
 
-    const submitLollyForm = async (values, actions) => {
+    const submitLollyForm = async () => {
+        console.log("clicked");
+        console.log("color 1", color1);
+        console.log("sender", senderRef.current.value);
         const slug = shortId.generate();
         const result = await createLolly({
           variables: {
@@ -82,7 +87,7 @@ export default function CreateNew() {
             flavourTop: color1,
             flavourMiddle: color2,
             flavourBottom: color3,
-            lollyPath: slug.toString(),
+            lollyPath: slug,
             }
         });
         console.log("result form server = ",result);
@@ -94,8 +99,10 @@ export default function CreateNew() {
         //       from: "",
         //     },
         //   });
-        
-        await navigate(`/showLolly/${slug}`);
+
+        // submitLollyForm()
+
+        await navigate(`/lollies/${slug}`);
     }
 
   return (
@@ -112,8 +119,7 @@ export default function CreateNew() {
                     <input type="color"  value={color1} className="colorPicker" name="flavourTop" id="flavourTop"
                         onChange={(e)=>{
                             setColor1(e.target.value)
-                        }}
-                    
+                        }}                    
                     />
                 </label>
                 
