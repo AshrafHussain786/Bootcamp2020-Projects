@@ -75,13 +75,13 @@ const resolvers = {
       return x
     },
 
-    GetLollyByPath: async (_, args) => {
+    GetLollyByPath: async (_, { lollyPath}) => {
       const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
 
       console.log(path)
       try {
         const result = await client.query(
-          q.Get(q.Match(q.Index("lolly_by_path"), args.lollyPath))
+          q.Get(q.Match(q.Index("lolly_by_path"), lollyPath))
         )
 
         console.log(result)
@@ -94,6 +94,7 @@ const resolvers = {
 
   Mutation: {
     createLolly: async (_, args) => {
+      // The following will be shown on command prompt
       console.log("args = ", args)
 
       const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});      
@@ -107,14 +108,16 @@ const resolvers = {
           })
         )
 
-        // axios
-        //   .post("https://api.netlify.com/build_hooks/5feafc26ad5ebec8669f7949")
-        //   .then(function (response) {
-        //     console.log(response)
-        //   })
-        //   .catch(function (error) {
-        //     console.error(error)
-        //   })
+        axios
+          .post("https://api.netlify.com/build_hooks/5feafc26ad5ebec8669f7949")
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+            console.error(error)
+          })
+
+        // The following will be shown on command prompt
         console.log("result ===> ", result)  
         console.log("result data ===> ", result.data)  
         return result.data

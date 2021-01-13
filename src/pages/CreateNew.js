@@ -2,7 +2,8 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import React, { useRef, useState } from "react"
 import shortid from "shortid";
 import Header from "../component/Header"
-import Lolly from "../component/Lolly"
+import Lolly from "../component/Lolly";
+import { navigate } from "gatsby";
 
 // const GETDATA = gql`
 //     {
@@ -56,7 +57,10 @@ export default function CreateNew() {
                 lollyPath: id.toString(),
             },
         });
+        // The following will be shown on console
         console.log("result form server ===> ", result);
+
+        await navigate(`/lollies/${id}`);
     }
 
   return (
