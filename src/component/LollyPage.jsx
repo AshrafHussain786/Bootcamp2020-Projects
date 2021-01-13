@@ -7,14 +7,14 @@ import Header from "./Header"
 
 export const query = gql`
   query getLollyByPath($lollyPath: String!) {
-    getLollyByPath(lollyPath: $lollyPath) {
-      flavorBottom
-      flavorMiddle
-      flavorTop
-      lollyPath
-      message
+    getLollyByPath(lollyPath: $lollyPath) {      
       recipientName
+      message
       sendersName
+      flavourBottom
+      flavourMiddle
+      flavourTop
+      lollyPath      
     }
   }
 `

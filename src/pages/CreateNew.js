@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
-import { gql, useMutation } from "@apollo/client";
-import Header from "../component/Header";
-import Lolly from "../component/Lolly";
-import shortId from "shortid";
-import { navigate } from "gatsby";
+import { gql, useMutation, useQuery } from "@apollo/client";
+import React, { useRef, useState } from "react"
+import shortid from "shortid";
+import Header from "../component/Header"
+import Lolly from "../component/Lolly"
 
 // const GETDATA = gql`
 //     {
@@ -12,32 +11,13 @@ import { navigate } from "gatsby";
 // `
 
 const createLollyMutation = gql`
-    mutation createLolly(
-        $recipientName: String!, 
-        $message: String!, 
-        $senderName: String!, 
-        $flavourTop: String!, 
-        $flavourMiddle: String!,
-        $flavourBottom: String!,
-        $lollyPath: String!
-        ) {
-        createLolly(recipientName: $recipientName, 
-            message: $message, 
-            senderName: $senderName, 
-            flavourTop: $flavourTop, 
-            flavourMiddle: $flavourMiddle,
-            flavourBottom: $flavourBottom,
-            lollyPath: $lollyPath) {
+    mutation createLolly($recipientName: String!, $message: String!, $senderName: String!, $flavourTop: String!, $flavourMiddle: String!,$flavourBottom: String!, $lollyPath: String!) {
+        createLolly(recipientName: $recipientName, message: $message, senderName: $senderName, flavourTop: $flavourTop, flavourMiddle: $flavourMiddle,flavourBottom: $flavourBottom, lollyPath: $lollyPath) {
             message
             lollyPath
         }
     }
 `
-// const initialValues = {
-//     to: "",
-//     message: "",
-//     from: "",
-//   };
 
 export default function CreateNew() {
     const [color1, setColor1] = useState("#d52358");
@@ -49,67 +29,39 @@ export default function CreateNew() {
 
     // const {loading, error, data } = useQuery(GETDATA);
     // if (loading) {
-    //     <h1>Loading.....</h1>
+    //     return (
+    //     <h1> Loading....</h1>
+    //     )
     // }
-    // if (error) {
-    //     console.log("Error ===> ", error)
+    // i    f (error) {
+    //     console.log("Error is ===> ", error)
     // }
+    // console.log("Data is ====> ", data);
 
     const [createLolly] = useMutation(createLollyMutation);
 
-    // const submitLollyForm = async () => {
-    //     console.log("clicked");
-    //     console.log("color 1", color1);
-    //     console.log("sender", senderRef.current.value);
-    //     const result = await createLolly({
-    //         variables : {
-    //             recipientName: recipientNameRef.current.value,
-    //             message : messageRef.current.value,
-    //             senderName: senderRef.current.value,
-    //             flavourTop: color1,
-    //             flavourMiddle: color2,
-    //             flavourBottom: color3
-    //         }
-    //     });
-    //     console.log("result form server = ",result);
-    // }
-
     const submitLollyForm = async () => {
+        const id = shortid.generate();
         console.log("clicked");
         console.log("color 1", color1);
         console.log("sender", senderRef.current.value);
-        const slug = shortId.generate();
         const result = await createLolly({
-          variables: {
-            recipientName: recipientNameRef.current.value,
-            message: messageRef.current.value,
-            senderName: senderRef.current.value,
-            flavourTop: color1,
-            flavourMiddle: color2,
-            flavourBottom: color3,
-            lollyPath: slug,
-            }
+            variables : {
+                recipientName: recipientNameRef.current.value,
+                message : messageRef.current.value,
+                senderName: senderRef.current.value,
+                flavourTop: color1,
+                flavourMiddle: color2,
+                flavourBottom: color3,
+                lollyPath: id.toString(),
+            },
         });
-        console.log("result form server = ",result);
-
-        // await actions.resetForm({
-        //     values: {
-        //       to: "",
-        //       message: "",
-        //       from: "",
-        //     },
-        //   });
-
-        // submitLollyForm()
-
-        await navigate(`/lollies/${slug}`);
+        console.log("result form server ===> ", result);
     }
 
   return (
     <div className="container">
-      {/*data && data.hello && <div>{data.hello}</div>*/}
       <Header />
-
         <div className="lollyFormDiv">
             <div>
                 <Lolly fillLollyTop={color1} fillLollyMiddle={color2} fillLollyBottom={color3} />
@@ -119,7 +71,8 @@ export default function CreateNew() {
                     <input type="color"  value={color1} className="colorPicker" name="flavourTop" id="flavourTop"
                         onChange={(e)=>{
                             setColor1(e.target.value)
-                        }}                    
+                        }}
+                    
                     />
                 </label>
                 

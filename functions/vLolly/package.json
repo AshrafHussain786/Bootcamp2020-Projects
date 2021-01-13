@@ -4,7 +4,9 @@
   "description": "",
   "main": "vLolly.js",
   "dependencies": {
+    "apollo-server-lambda": "^2.19.1",
     "faunadb": "^4.0.0",
+    "graphql": "^15.4.0",
     "shortid": "^2.2.16"
   },
   "devDependencies": {},
