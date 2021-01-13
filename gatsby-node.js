@@ -15,10 +15,10 @@ exports.createPages = async ({ actions, graphql }) => {
   }}}
   `)
 
-  console.log(data)
-  result.data.getLollies.getAllLollies.map( async (indLolly ) => {    
+  console.log("Data from gatsby-node file ===> ", result.data)
+  result.data.getLollies.getAllLollies.map( async (lollyPath ) => {    
     await actions.createPage({
-      path: `lollies/${indLolly.lollyPath}`,
+      path: `lollies/${lollyPath}`,
       component: path.resolve(`./src/template/lollyPage.jsx`),
       context: {
         lollies: lollyPath,
