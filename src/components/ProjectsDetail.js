@@ -127,7 +127,7 @@ export const ProjectsDetail = [
         imgsrc: Bootcamp,
         projectId: "Project-12B",
         title: "Serverless CRUD apps with Netlify Functions and FaunaDB",
-        projectlink:"https://bootcamp-project12a-ashraf.netlify.app/",
+        projectlink:"https://bootcamp-project12b-ashraf.netlify.app/",
         gitlink: "https://github.com/AshrafHussain786/Bootcamp2020-Projects/tree/Project-12B"        
     },
     {
