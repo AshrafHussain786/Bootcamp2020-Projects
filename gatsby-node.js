@@ -3,7 +3,7 @@ const path = require(`path`)
 exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
   query MyQuery{
-    getLollies{
+    LOLLIES{
     getAllLollies{
         recipientName
         senderName
@@ -16,13 +16,16 @@ exports.createPages = async ({ actions, graphql }) => {
   `)
 
   console.log("Data from gatsby-node file ===> ", result.data)
-  result.data.getLollies.getAllLollies.map( async (lollyPath ) => {    
-    await actions.createPage({
-      path: `lollies/${lollyPath}`,
+//   result.Lollies.data.getAllLollies.map( async (lollyPath ) => {    
+//     await actions.createPage({
+    data.LOLLIES.getAllLollies.forEach((node) => {
+      actions.createPage({
+      path: `lollies/${node.lollyPath}`,
       component: path.resolve(`./src/template/lollyPage.jsx`),
-      context: {
-        lollies: lollyPath,
-      },
+    //   context: {
+    //     lollies: lollyPath,
+    //   },
+      context: node
     })
   })
 }

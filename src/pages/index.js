@@ -15,13 +15,15 @@ export default function Home() {
           <Lolly fillLollyTop="red" fillLollyMiddle="green" fillLollyBottom="blue"  />
         </div>  
       </div>
-      <input type="button" value="Create New Lolly"
+      {/* <input type="button" value="Create New Lolly"
         onClick={
           ()=>{
             navigate("/CreateNew");
           }
         }
-      />
+      /> */}
+
+      <button onClick={() => navigate("/CreateNew")}> Create New Lolly </button>
     </div>
   )
 }

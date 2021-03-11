@@ -64,7 +64,7 @@ const resolvers = {
 
       var result = await client.query(
         q.Map(
-          q.Paginate(q.Match(q.Index("AllLollies"))),
+          q.Paginate(q.Match(q.Index("allLollies"))),
           q.Lambda(x => q.Get(x))
         )
       )
@@ -103,7 +103,7 @@ const resolvers = {
 
       
         const result = await client.query(
-          q.Create(q.Collection("Lollies"), {
+          q.Create(q.Collection("LOLLIES"), {
             data: args,
           })
         )

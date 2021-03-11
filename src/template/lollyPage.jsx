@@ -8,9 +8,10 @@ export default function LollyPage(lolly) {
   return (
     <div>
 
-      <h5 className="sharableLinkContainer">Your sharable link: </h5>{" "}
+      <h5 className="sharableLinkContainer">Share this lolly link to your friend: </h5>{" "}
       <span className="sharableLink">
         {" "}
+        {/* {`https://bootcamp-project12ee-ashraf.netlify.app${location.pathname}/`} */}
         {`https://bootcamp-project12ee-ashraf.netlify.app${location.pathname}/`}
       </span>
       <div className="recievedContentContainer">
