@@ -31,7 +31,7 @@ const typeDefs = gql`
       lollyPath: String!): Lolly
   }
 `
-// const client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET })
+const client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET })
 const resolvers = {
   Query: {
     hello: () => {
@@ -60,7 +60,7 @@ const resolvers = {
     // },
 
     getAllLollies: async () => {
-      const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
+      // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
 
       var result = await client.query(
         q.Map(
@@ -76,7 +76,7 @@ const resolvers = {
     },
 
     GetLollyByPath: async (_, { lollyPath}) => {
-      const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
+      // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
 
       console.log(path)
       try {
@@ -97,7 +97,7 @@ const resolvers = {
       // The following will be shown on command prompt
       console.log("args = ", args)
 
-      const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});      
+      // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});      
       // const id = shortid.generate()
       // args.lollyPath = id
 
@@ -108,14 +108,14 @@ const resolvers = {
           })
         )
 
-        axios
-          .post("https://api.netlify.com/build_hooks/5feafc26ad5ebec8669f7949")
-          .then(function (response) {
-            console.log(response)
-          })
-          .catch(function (error) {
-            console.error(error)
-          })
+        // axios
+        //   .post("https://api.netlify.com/build_hooks/5feafc26ad5ebec8669f7949")
+        //   .then(function (response) {
+        //     console.log(response)
+        //   })
+        //   .catch(function (error) {
+        //     console.error(error)
+        //   })
 
         // The following will be shown on command prompt
         console.log("result ===> ", result)  
