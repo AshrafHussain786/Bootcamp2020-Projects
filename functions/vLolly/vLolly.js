@@ -39,10 +39,10 @@ const resolvers = {
     },
 
     // getAllLollies: async () => {
-    //   const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
+    //   // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
     //   var result = await client.query(
     //     q.Map(
-    //       q.Paginate(q.Match(q.Index("allLollies"))),
+    //       q.Paginate(q.Match(q.Index("lolly_by_path"))),
     //       q.Lambda(x => q.Get(x))
     //     )
     //   )
@@ -50,9 +50,9 @@ const resolvers = {
     //     return {
     //       recipientName: d.data.recipientName,
     //       sendersName: d.data.sendersName,
-    //       flavourTop: d.data.flavorTop,
-    //       flavourMiddle: d.data.flavorMid,
-    //       flavourBottom: d.data.flavorBot,
+    //       flavourTop: d.data.flavourTop,
+    //       flavourMiddle: d.data.flavourMiddle,
+    //       flavourBottom: d.data.flavourBottom,
     //       message: d.data.message,
     //       lollyPath: d.data.lollyPath,
     //     }
@@ -74,6 +74,27 @@ const resolvers = {
       })
       return x
     },
+
+    // getAllLollies: async () => {
+    //   var result = await client.query(
+    //     q.Map(
+    //       q.Paginate(q.Documents(q.Collection("Lollies"))),
+    //       q.Lambda(x => q.Get(x))
+    //     )
+    //   )
+    //   console.log(result)
+    //   return result.data.map(d => {
+    //     return {
+    //       recipientName: d.data.recipientName,
+    //       sendersName: d.data.sendersName,
+    //       flavourTop: d.data.flavourTop,
+    //       flavourMiddle: d.data.flavourMiddle,
+    //       flavourBottom: d.data.flavourBottom,
+    //       message: d.data.message,
+    //       lollyPath: d.data.lollyPath,
+    //     }
+    //   })
+    // },
 
     GetLollyByPath: async (_, { lollyPath}) => {
       // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});

@@ -1,5 +1,6 @@
 const path = require(`path`)
 
+//////// FIRST METHOD
 exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
     query MyQuery {
@@ -17,12 +18,8 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `)
 
-  console.log("Data from gatsby-node file ===> ", result.data)
+console.log("Data from gatsby-node file ===> ", result.data)
 
-  // data.Lollies.getAllLollies.forEach((node) => {
-  //   actions.createPage({
-  //   path: `lollies/${node.lollyPath}`,
-  // context: node
     result.data.Lollies.getAllLollies.map(async (indLolly) => {
         console.log(indLolly)
     await actions.createPage({
@@ -33,4 +30,29 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   })
+
+//////// SECOND METHOD
+// exports.createPages = async ({ actions, graphql }) => {
+//   const { data } = await graphql(`
+//   query MyQuery {
+//     Lollies {
+//       getAllLollies {
+//       lollyPath
+//       }
+//     }
+//   }
+//   `)
+
+//   console.log("Data from gatsby-node file ===> ", data)
+
+//   data.Lollies.getAllLollies.forEach(({ lollyPath }) => {
+//     actions.createPage({
+//       path: `lollies/${lollyPath}`,
+//       component: path.resolve(`./src/component/lollyPage.jsx`),
+//       context: {
+//         lollyPath: lollyPath,
+//       },
+//     })
+//   })
+
 }

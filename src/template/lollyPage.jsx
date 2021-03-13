@@ -1,7 +1,6 @@
 import React from "react";
 import Lolly from '../component/Lolly';
 
-
 export default function LollyPage(lollies) {
 
   const {location, pageContext} = lollies;
@@ -9,9 +8,8 @@ export default function LollyPage(lollies) {
     <div>
 
       <h5 className="sharableLinkContainer">Share this lolly link to your friend: </h5>{" "}
-      <span className="sharableLink">
-        {" "}
-        {/* {`https://bootcamp-project12ee-ashraf.netlify.app${location.pathname}/`} */}
+      {/* <span className="sharableLink">
+        {" "}        
         {`https://bootcamp-project12ee-ashraf.netlify.app${location.pathname}/`}
       </span>
       <div className="recievedContentContainer">
@@ -26,7 +24,7 @@ export default function LollyPage(lollies) {
           <p>{pageContext.lollies.message}</p>
           <h4>From: {pageContext.lollies.senderName}</h4>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
