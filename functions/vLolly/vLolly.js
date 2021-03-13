@@ -64,7 +64,7 @@ const resolvers = {
 
       var result = await client.query(
         q.Map(
-          q.Paginate(q.Match(q.Index("allLollies"))),
+          q.Paginate(q.Match(q.Index("lolly_by_path"))),
           q.Lambda(x => q.Get(x))
         )
       )
@@ -78,7 +78,7 @@ const resolvers = {
     GetLollyByPath: async (_, { lollyPath}) => {
       // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
 
-      console.log(path)
+      console.log(lollyPath)
       try {
         const result = await client.query(
           q.Get(q.Match(q.Index("lolly_by_path"), lollyPath))
@@ -103,19 +103,19 @@ const resolvers = {
 
       
         const result = await client.query(
-          q.Create(q.Collection("LOLLIES"), {
+          q.Create(q.Collection("Lollies"), {
             data: args,
           })
         )
 
-        // axios
-        //   .post("https://api.netlify.com/build_hooks/5feafc26ad5ebec8669f7949")
-        //   .then(function (response) {
-        //     console.log(response)
-        //   })
-        //   .catch(function (error) {
-        //     console.error(error)
-        //   })
+        axios
+          .post("https://api.netlify.com/build_hooks/604b164845c7c46856c68ce9")
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+            console.error(error)
+          })
 
         // The following will be shown on command prompt
         console.log("result ===> ", result)  

@@ -2,9 +2,9 @@ import React from "react";
 import Lolly from '../component/Lolly';
 
 
-export default function LollyPage(lolly) {
+export default function LollyPage(lollies) {
 
-  const {location, pageContext} = lolly;
+  const {location, pageContext} = lollies;
   return (
     <div>
 
@@ -16,15 +16,15 @@ export default function LollyPage(lolly) {
       </span>
       <div className="recievedContentContainer">
         <Lolly
-          fillLollyTop={pageContext.lolly.flavourTop}
-          fillLollyMiddle={pageContext.lolly.flavourMiddle}
-          fillLollyBottom={pageContext.lolly.flavourBottom}
+          fillLollyTop={pageContext.lollies.flavourTop}
+          fillLollyMiddle={pageContext.lollies.flavourMiddle}
+          fillLollyBottom={pageContext.lollies.flavourBottom}
         />
 
         <div className="recievedTextContainer">
-          <h3>HI {pageContext.lolly.recipientName}</h3>
-          <p>{pageContext.lolly.message}</p>
-          <h4>From: {pageContext.lolly.senderName}</h4>
+          <h3>HI {pageContext.lollies.recipientName}</h3>
+          <p>{pageContext.lollies.message}</p>
+          <h4>From: {pageContext.lollies.senderName}</h4>
         </div>
       </div>
     </div>
