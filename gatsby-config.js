@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `Gatsby Default Starter`,
+    description: `Project-12e: Virtual Lolly `,
+    author: `@Ashraf`,
+  },
   plugins: [
     // Simple config, passing URL
     {
@@ -9,7 +14,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "Lollies",
         // Url to query from
-         url: "https://bootcamp-project12ee-ashraf.netlify.app/.netlify/functions/vLolly",
+         url: `https://bootcamp-project12ee-ashraf.netlify.app/.netlify/functions/vLolly`,
       },
     }
   ],
