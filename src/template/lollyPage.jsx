@@ -1,14 +1,14 @@
 import React from "react";
 import Lolly from '../component/Lolly';
 
-export default function LollyPage(lollies) {
+export default function LollyPage(lolly) {
 
-  const {location, pageContext} = lollies;
+  const {location, pageContext} = lolly;
   return (
     <div>
 
       <h5 className="sharableLinkContainer">Share this lolly link to your friend: </h5>{" "}
-      {/* <span className="sharableLink">
+      <span className="sharableLink">
         {" "}        
         {`https://bootcamp-project12ee-ashraf.netlify.app${location.pathname}/`}
       </span>
@@ -24,7 +24,7 @@ export default function LollyPage(lollies) {
           <p>{pageContext.lollies.message}</p>
           <h4>From: {pageContext.lollies.senderName}</h4>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

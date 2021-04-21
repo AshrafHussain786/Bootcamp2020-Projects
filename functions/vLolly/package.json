@@ -2,13 +2,7 @@
   "name": "vlolly",
   "version": "1.0.0",
   "description": "",
-  "main": "vLolly.js",
-  "dependencies": {
-    "apollo-server-lambda": "^2.21.1",
-    "faunadb": "^4.0.0",
-    "graphql": "^15.5.0",
-    "shortid": "^2.2.16"
-  },
+  "main": "vLolly.js",  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

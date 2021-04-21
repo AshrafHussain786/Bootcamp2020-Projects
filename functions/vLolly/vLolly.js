@@ -1,53 +1,55 @@
 const { ApolloServer, gql } = require("apollo-server-lambda")
-
 const faunadb = require("faunadb")
 const axios = require("axios")
-const q = faunadb.query
-const shortid = require("shortid")
+const q = faunadb.query;
+require("dotenv").config();
+// const shortid = require("shortid")
 
 const typeDefs = gql`
   type Query {
-    hello: String
-    getAllLollies: [Lolly]!
-    GetLollyByPath(lollyPath: String!): Lolly
+    hello: String!
+    getAllLollies: [Lolly!]
+    GetLollyByPath(lollyPath: String): Lolly
   }
-
   type Lolly {
-    recipientName: String!
-    message: String!
-    senderName: String!
-    flavourTop: String!
-    flavourMiddle: String!
-    flavourBottom: String!
-    lollyPath: String!
+    recipientName: String
+    message: String
+    senderName: String
+    flavourTop: String
+    flavourMiddle: String
+    flavourBottom: String
+    lollyPath: String
   }
-
   type Mutation {
     createLolly(
-      recipientName: String!
-      message: String!
-      senderName: String!
-      flavourTop: String!
-      flavourMiddle: String!
-      flavourBottom: String!
-      lollyPath: String!
+      recipientName: String
+      message: String
+      senderName: String
+      flavourTop: String
+      flavourMiddle: String
+      flavourBottom: String
+      lollyPath: String
     ): Lolly
   }
-`
-const client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET })
+`;
+
+// const client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET })
+// const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
+const client = new faunadb.Client({secret: "fnAEHU0m0DACAY7STKHZnXRDcHE9z4i6EOltAmtW"});
+
 const resolvers = {
   Query: {
     hello: () => {
       return "Hello, Virtual Lolly...."
     },
-
+    
     // getAllLollies: async () => {
     //   var result = await client.query(
-    //     q.Map(
-    //       q.Paginate(q.Match(q.Index("lolly_by_path"))),
+    //     q.Map(q.Paginate(q.Match(q.Index(`allLollies`))),
     //       q.Lambda(x => q.Get(x))
     //     )
     //   )
+    //   console.log(result)
     //   return result.data.map(d => {
     //     return {
     //       recipientName: d.data.recipientName,
@@ -61,28 +63,41 @@ const resolvers = {
     //   })
     // },
 
-    getAllLollies: async () => {
+    getAllLollies: async (root, args, context) => {
       var result = await client.query(
-        q.Map(q.Paginate(q.Match(q.Index("allLollies"))),
-          q.Lambda("x", q.Get("x"))
+        q.Map(q.Paginate(q.Match(q.Index("lolly"))),
+          q.Lambda("x", q.Get(q.Var("x")))
         )
-      )
-      // query.Map(
-      //   query.Paginate(query.Match(query.Index("lolly_by_path"))),
-      //   query.Lambda("x", query.Get(query.Var("x")))
-      // )
-      let x = []
-      console.log("Result in getAllLollies query in vLolly file: ", result)
-      result.data.map(curr => {
-        x.push(curr.data)
-      })
-      return x
+      );
+      let x = [];
+      result.data.map((curr) => {
+        x.push(curr.data);
+      });
+      return x;
     },
+
+    // getAllLollies: async () => {
+    //   var result = await client.query(
+    //     q.Map(q.Paginate(q.Match(q.Index("lolly_by_path"))),
+    //       q.Lambda("x", q.Get("x"))
+    //     )
+    //   )
+    //   // query.Map(
+    //   //   query.Paginate(query.Match(query.Index("lolly_by_path"))),
+    //   //   query.Lambda("x", query.Get(query.Var("x")))
+    //   // )
+    //   let x = []
+    //   console.log("Result in getAllLollies query in vLolly file: ", result)
+    //   result.data.map(curr => {
+    //     x.push(curr.data)
+    //   })
+    //   return x
+    // },
 
     // getAllLollies: async (root, args, context) => {
     //   try {
     //     const client = new faunadb.Client({
-    //       secret: process.env.FAUNA_LOLLY_SECRET,
+    //       secret: process.env.FAUNADB_SERVER_SECRET,
     //     })
     //     const result = await client.query(
     //       query.Map(
@@ -129,7 +144,6 @@ const resolvers = {
     // },
 
     GetLollyByPath: async (_, { lollyPath }) => {
-      // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
 
       console.log(lollyPath)
       try {

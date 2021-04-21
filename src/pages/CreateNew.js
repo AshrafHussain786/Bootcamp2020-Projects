@@ -11,9 +11,24 @@ import { navigate } from "gatsby";
 //     }
 // `
 
-const createLollyMutation = gql`
-    mutation createLolly($recipientName: String!, $message: String!, $senderName: String!, $flavourTop: String!, $flavourMiddle: String!,$flavourBottom: String!, $lollyPath: String!) {
-        createLolly(recipientName: $recipientName, message: $message, senderName: $senderName, flavourTop: $flavourTop, flavourMiddle: $flavourMiddle,flavourBottom: $flavourBottom, lollyPath: $lollyPath) {
+const CreateLolly = gql`
+    mutation createLolly(
+        $recipientName: String!, 
+        $message: String!, 
+        $senderName: String!, 
+        $flavourTop: String!, 
+        $flavourMiddle: String!,
+        $flavourBottom: String!, 
+        $lollyPath: String!
+        ) {
+        createLolly(recipientName: $recipientName, 
+            message: $message, 
+            senderName: $senderName, 
+            flavourTop: $flavourTop, 
+            flavourMiddle: $flavourMiddle,
+            flavourBottom: $flavourBottom, 
+            lollyPath: $lollyPath) 
+        {
             message
             lollyPath
         }
@@ -39,7 +54,7 @@ export default function CreateNew() {
     // }
     // console.log("Data is ====> ", data);
 
-    const [createLolly] = useMutation(createLollyMutation);
+    const [createLolly] = useMutation(CreateLolly);
 
     const submitLollyForm = async () => {
         const id = shortid.generate();
@@ -60,7 +75,7 @@ export default function CreateNew() {
         // The following will be shown on console
         console.log("result form server ===> ", result);
 
-        await navigate(`/lollies/${id}`);
+        await navigate(`/lolly/${id}`);
     }
 
   return (
