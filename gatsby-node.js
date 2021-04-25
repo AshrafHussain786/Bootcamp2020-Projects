@@ -20,16 +20,16 @@ exports.createPages =  ({ actions, graphql }) => {
 
   console.log("Result in gatsby-node file >>>>>", result);
 
-  // result?.data?.Lollies?.getAllLollies.map(async (indLolly) => {
-  //   console.log(indLolly)
-  //   await actions.createPage({
-  //     path: `lolly/${indLolly.lollyPath}`,
-  //     component: path.resolve(`./src/template/lollyPage.jsx`),
-  //     context: {
-  //       lollies: indLolly,
-  //     },
-  //   })
-  // })
+  result?.data?.Lollies?.getAllLollies.map(async (indLolly) => {
+    console.log(indLolly)
+    await actions.createPage({
+      path: `lolly/${indLolly.lollyPath}`,
+      component: path.resolve(`./src/template/lollyPage.jsx`),
+      context: {
+        lollies: indLolly,
+      },
+    })
+  })
 
 
 // // exports.createPages = async ({ actions, graphql }) => {
