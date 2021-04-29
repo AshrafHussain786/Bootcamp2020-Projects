@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require("apollo-server-lambda")
 const faunadb = require("faunadb")
 const axios = require("axios")
 const q = faunadb.query;
-require("dotenv").config();
+// require("dotenv").config();
 // const shortid = require("shortid")
 
 const typeDefs = gql`
@@ -167,12 +167,12 @@ const resolvers = {
       // const client = new faunadb.Client({secret: "fnAD_TFlmQACBXLZo62NztTINQ7hszEaoxAqPnVR"});
       // const id = shortid.generate()
       // args.lollyPath = id
-
+      try {
       const result = await client.query(
         q.Create(q.Collection("Lollies"), {
           data: args,
         })
-      )
+      );
 
       axios
         .post("https://api.netlify.com/build_hooks/604b164845c7c46856c68ce9")
@@ -181,18 +181,18 @@ const resolvers = {
         })
         .catch(function (error) {
           console.error(error)
-        })
+        });
 
       // The following will be shown on command prompt
       console.log("result in vLolly file ==========> ", result)
-      console.log("result.ref in vLolly file ======> ", result.ref)
-      console.log("result.ref.id in vLolly file ===> ", result.ref.id)
-      console.log("result.data in vLolly file =====> ", result.data)
-      return result.data
+      // console.log("result.ref in vLolly file ======> ", result.ref)
+      // console.log("result.ref.id in vLolly file ===> ", result.ref.id)
+      // console.log("result.data in vLolly file =====> ", result.data)
+      return result.data;
 
-      // } catch (error) {
-      //   return error.toString()
-      // }
+      } catch (error) {
+        return error.toString()
+      }
     },
   },
 }
@@ -204,7 +204,7 @@ const server = new ApolloServer({
 
 const handler = server.createHandler()
 
-module.exports = { handler }
+module.exports = { handler };
 
 // ==============================================================
 // const { ApolloServer, gql } = require("apollo-server-lambda");

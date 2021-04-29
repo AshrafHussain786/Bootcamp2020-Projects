@@ -34,7 +34,7 @@ const CREATE_LOLLY_MUTATION = gql`
     }
 `
 
-export default function CreateNew() {
+const CreateNew = () => {
     const [color1, setColor1] = useState("#d52358");
     const [color2, setColor2] = useState("#e95946");
     const [color3, setColor3] = useState("#deaa43");
@@ -75,7 +75,7 @@ export default function CreateNew() {
         console.log("result form server ===> ", result);
 
         await navigate(`/lolly/${id}`);
-    }
+    };
 
   return (
     <div className="container">
@@ -130,3 +130,5 @@ export default function CreateNew() {
     </div>
   );
 }
+
+export default CreateNew;
