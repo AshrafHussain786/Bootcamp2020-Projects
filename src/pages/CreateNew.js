@@ -11,7 +11,7 @@ import { navigate } from "gatsby";
 //     }
 // `
 
-const CreateLolly = gql`
+const CREATE_LOLLY_MUTATION = gql`
     mutation createLolly(
         $recipientName: String!, 
         $message: String!, 
@@ -29,8 +29,7 @@ const CreateLolly = gql`
             flavourBottom: $flavourBottom, 
             lollyPath: $lollyPath) 
         {
-            message
-            lollyPath
+            message            
         }
     }
 `
@@ -54,9 +53,9 @@ export default function CreateNew() {
     // }
     // console.log("Data is ====> ", data);
 
-    const [createLolly] = useMutation(CreateLolly);
+    const [createLolly] = useMutation(CREATE_LOLLY_MUTATION);
 
-    const submitLollyForm = async () => {
+    const submitLollyForm = async (values, actions) => {
         const id = shortid.generate();
         console.log("clicked");
         console.log("color 1", color1);
