@@ -5,12 +5,19 @@ import Header from "../component/Header"
 import Lolly from "../component/Lolly";
 import { navigate } from "gatsby";
 
-// const GETDATA = gql`
-//     {
-//         hello
-//     }
-// `
-
+const GET_VLOLLY = gql`
+  {
+    getAllLollies {
+        recipientName      
+        message
+        senderName
+        flavourTop
+        flavourMiddle
+        flavourBottom
+        lollyPath
+    }
+  }
+`
 const CREATE_LOLLY_MUTATION = gql`
     mutation createLolly(
         $recipientName: String!, 
@@ -41,23 +48,13 @@ const CreateNew = () => {
     const recipientNameRef = useRef();
     const messageRef = useRef();
     const senderRef = useRef();
+    const [updated,setUpdated] = useState(false)
 
-    // const {loading, error, data } = useQuery(GETDATA);
-    // if (loading) {
-    //     return (
-    //     <h1> Loading....</h1>
-    //     )
-    // }
-    // i    f (error) {
-    //     console.log("Error is ===> ", error)
-    // }
-    // console.log("Data is ====> ", data);
-
-    const [createLolly] = useMutation(CREATE_LOLLY_MUTATION);
+    
 
     const submitLollyForm = async (values, actions) => {
         const id = shortid.generate();
-        console.log("clicked");
+        console.log("Lolly path is >>>>>", id.toString());
         console.log("color 1", color1);
         console.log("sender", senderRef.current.value);
         const result = await createLolly({
@@ -70,12 +67,23 @@ const CreateNew = () => {
                 flavourBottom: color3,
                 lollyPath: id.toString(),
             },
-        });
+            refetchQueries: [{ query: GET_VLOLLY }]
+        })
         // The following will be shown on console
-        console.log("result form server ===> ", result);
+        console.log("result form server ===> ", result);        
 
         await navigate(`/lolly/${id}`);
     };
+
+    // submitLollyForm();
+    // setUpdated(true);
+
+    const { error, loading, data } = useQuery(GET_VLOLLY);
+    const [createLolly] = useMutation(CREATE_LOLLY_MUTATION);
+
+    if (loading) return <h1>Loading...</h1>
+    if (error) return <h1> {error}</h1>
+    console.log("Data in CreateLolly page:", data);
 
   return (
     <div className="container">
