@@ -13,10 +13,11 @@ module.exports = {
         typeName: "lolly",
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "Lollies",
-        // Url to query from
+        // Url to query from        
          url: `https://bootcamp-project12ee-ashraf.netlify.app/.netlify/functions/vLolly`,
-        // url: `http://localhost:8888/.netlify/functions/vLolly`,
       },
     }
   ],
 }
+// FaunaDB 
+// https://dashboard.fauna.com/collections/Lollies/@db/LollyDB

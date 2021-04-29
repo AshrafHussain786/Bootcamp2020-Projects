@@ -48,15 +48,12 @@ const CreateNew = () => {
     const recipientNameRef = useRef();
     const messageRef = useRef();
     const senderRef = useRef();
-    const [updated,setUpdated] = useState(false)
 
-    
-
-    const submitLollyForm = async (values, actions) => {
+    const submitLollyForm = async () => {
         const id = shortid.generate();
         console.log("Lolly path is >>>>>", id.toString());
-        console.log("color 1", color1);
-        console.log("sender", senderRef.current.value);
+        // console.log("color 1", color1);
+        // console.log("sender", senderRef.current.value);
         const result = await createLolly({
             variables : {
                 recipientName: recipientNameRef.current.value,
@@ -74,9 +71,6 @@ const CreateNew = () => {
 
         await navigate(`/lolly/${id}`);
     };
-
-    // submitLollyForm();
-    // setUpdated(true);
 
     const { error, loading, data } = useQuery(GET_VLOLLY);
     const [createLolly] = useMutation(CREATE_LOLLY_MUTATION);
