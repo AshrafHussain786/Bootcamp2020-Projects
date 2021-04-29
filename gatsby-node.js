@@ -1,8 +1,14 @@
 const path = require('path')
+// Log out information after a build is done
+exports.onPostBuild = ({ reporter }) => {
+  reporter.info(`Your Gatsby site has been built!`)
+}
 
+// Create blog pages dynamically
 //////// FIRST METHOD
-exports.createPages =  ({ actions, graphql }) => {
-  const result =  graphql(`
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
+  const result = await graphql(`
     query MyQuery {
       Lollies {
         getAllLollies {
@@ -18,11 +24,11 @@ exports.createPages =  ({ actions, graphql }) => {
     }
   `)
 
-  console.log("Result in gatsby-node file >>>>>", result);
+  // console.log("Result in gatsby-node file >>>>>", result)
 
   result.data.Lollies.getAllLollies.map(async (indLolly) => {
-    console.log(indLolly)
-    await actions.createPage({
+    // console.log(indLolly)
+    await createPage({
       path: `lolly/${indLolly.lollyPath}`,
       component: path.resolve(`./src/template/lollyPage.jsx`),
       context: {
