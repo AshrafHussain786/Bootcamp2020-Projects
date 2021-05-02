@@ -1,7 +1,8 @@
 import { Server, Model, Factory, belongsTo, hasMany, Response } from 'miragejs';
 
-import {login, signup} from './routes/user';
+import user from './routes/user';
 import * as diary from './routes/diary';
+
 
 export const handleErrors = (error: any, message = 'An error ocurred') => {
   return new Response(400, undefined, {
@@ -42,22 +43,19 @@ export const setupServer = (env?: string): Server => {
     },
 
     routes(): void {
-      this.urlPrefix = 'https://diaries.app';
-      
-      this.get('/diaries/:id', diary.getDiaries);
-      this.get('/diaries/entries/:id', diary.getEntries);      
+        this.urlPrefix = 'https://diaries.app';
 
-      // this.post('/auth/login', user.login);
-      // this.post('/auth/signup', user.signup);
-
-      this.post('/diaries/', diary.create);
-      this.post('/diaries/entry/:id', diary.addEntry);
-
-      this.put('/diaries/:id', diary.updateDiary);
-      this.put('/diaries/entry/:id', diary.updateEntry);      
-
-      this.post('/auth/login', login);
-      this.post('/auth/signup', signup);
+        this.get('/diaries/entries/:id', diary.getEntries);
+        this.get('/diaries/:id', diary.getDiaries);
+  
+        this.post('/auth/login', user.login);
+        this.post('/auth/signup', user.signup);
+  
+        this.post('/diaries/', diary.create);
+        this.post('/diaries/entry/:id', diary.addEntry);
+  
+        this.put('/diaries/entry/:id', diary.updateEntry);
+        this.put('/diaries/:id', diary.updateDiary);
     },
   });
 };

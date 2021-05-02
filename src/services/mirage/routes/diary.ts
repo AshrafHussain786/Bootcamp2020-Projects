@@ -5,6 +5,8 @@ import { Entry } from '../../../interfaces/entry.interface';
 import dayjs from 'dayjs';
 import { User } from '../../../interfaces/user.interface';
 
+
+
 export const create = (
     schema: any,
     req: Request
@@ -58,7 +60,6 @@ export const create = (
       return handleErrors(error, 'Could not get user diaries.');
     }
   };
-  
   export const addEntry = (
     schema: any,
     req: Request
@@ -112,3 +113,4 @@ export const create = (
       return handleErrors(error, 'Failed to update entry.');
     }
   };
+    
