@@ -7,9 +7,10 @@ const Auth = lazy(() => import("../features/auth/Auth"));
 const Home = lazy(() => import('../features/home/Home'));
 
 const App: FC = () => {
-  const isLoggedIn = useSelector(
-    (state: RootState) => state.auth.isAuthenticated
-  );
+  // const isLoggedIn = useSelector(
+  //   (state: RootState) => state.auth.isAuthenticated
+  // );
+  const isLoggedIn = true;
 
   return (
     <Router>
