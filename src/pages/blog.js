@@ -17,8 +17,8 @@ const Blog = () => {
               slug
               publishedDate(formatString: "DD-MM-YYYY")
               featuredImage {
-                fluid (maxWidth: 750) {
-                  src
+                fluid (maxWidth: 450) {
+                  ...GatsbyContentfulFluid              
                 }
               }
               excerpt {
@@ -41,7 +41,7 @@ const Blog = () => {
       <ul className="posts">
         {data.allContentfulBlogPost.edges.map(edge => {
           return (
-            <li className="post" key={edge.node.slug}>
+            <li className="post" key={edge.node.id}>
               <h2>
                 <Link to={`/blog/${edge.node.slug}/`}>{edge.node.title}</Link>
               </h2>
